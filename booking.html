@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Booking System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 30px;
+        }
+        
+        header h1 {
+            font-size: 2.8rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .booking-system {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .booking-form {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        
+        .form-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background 0.3s;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+        }
+        
+        .booking-details {
+            flex: 1;
+            min-width: 300px;
+            background: #2c3e50;
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        
+        .details-title {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        .feature-list {
+            list-style: none;
+        }
+        
+        .feature-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .feature-list i {
+            margin-right: 15px;
+            color: #3498db;
+            font-size: 20px;
+            margin-top: 3px;
+        }
+        
+        .testimonials {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .testimonials h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .testimonial {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial .author {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .booking-system {
+                flex-direction: column;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        /* Confirmation message */
+        .confirmation {
+            display: none;
+            background: #27ae60;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        /* Date and time picker styling */
+        .datetime-pickers {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Professional Booking System</h1>
+            <p>Seamless appointment scheduling for lawyers, dentists, consultants, and service businesses</p>
+        </header>
+        
+        <div class="booking-system">
+            <div class="booking-form">
+                <h2 class="form-title">Schedule an Appointment</h2>
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label for="service">Service Type</label>
+                        <select id="service" required>
+                            <option value="">Select a service</option>
+                            <option value="consultation">Initial Consultation</option>
+                            <option value="legal">Legal Advice</option>
+                            <option value="dental-checkup">Dental Checkup</option>
+                            <option value="cleaning">Dental Cleaning</option>
+                            <option value="whitening">Teeth Whitening</option>
+                            <option value="case-review">Case Review</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="professional">Professional</label>
+                        <select id="professional" required>
+                            <option value="">Select a professional</option>
+                            <option value="dr-smith">Dr. Smith (Dentist)</option>
+                            <option value="dr-jones">Dr. Jones (Dentist)</option>
+                            <option value="mr-johnson">Atty. Johnson (Lawyer)</option>
+                            <option value="ms-williams">Atty. Williams (Lawyer)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group datetime-pickers">
+                        <div>
+                            <label for="date">Date</label>
+                            <input type="date" id="date" required>
+                        </div>
+                        <div>
+                            <label for="time">Time</label>
+                            <input type="time" id="time" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="name">Your Full Name</label>
+                        <input type="text" id="name" placeholder="Enter your name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="Enter your phone number" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="notes">Additional Notes (Optional)</label>
+                        <textarea id="notes" rows="3" placeholder="Any special requirements or notes"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Book Appointment</button>
+                    
+                    <div id="confirmation" class="confirmation">
+                        <h3>Thank you for your booking!</h3>
+                        <p>Your appointment has been scheduled successfully. We've sent a confirmation to your email.</p>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="booking-details">
+                <h2 class="details-title">Why Use Our Booking System?</h2>
+                <ul class="feature-list">
+                    <li>
+                        <i class="fas fa-calendar-check"></i>
+                        <div>
+                            <h3>24/7 Online Scheduling</h3>
+                            <p>Clients can book appointments anytime, anywhere</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-bell"></i>
+                        <div>
+                            <h3>Automated Reminders</h3>
+                            <p>Reduce no-shows with email and SMS notifications</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-sync-alt"></i>
+                        <div>
+                            <h3>Calendar Synchronization</h3>
+                            <p>Syncs with Google Calendar, Outlook, and more</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-credit-card"></i>
+                        <div>
+                            <h3>Secure Payments</h3>
+                            <p>Accept deposits or payments during booking</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-mobile-alt"></i>
+                        <div>
+                            <h3>Mobile Responsive</h3>
+                            <p>Works perfectly on all devices</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-lock"></i>
+                        <div>
+                            <h3>Secure & Confidential</h3>
+                            <p>All data is encrypted and secure</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="testimonials">
+            <h2>What Professionals Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p>"This booking system cut our no-shows by 75% and made scheduling effortless for my dental practice."</p>
+                    <div class="author">- Dr. Sarah Johnson, Dentist</div>
+                </div>
+                <div class="testimonial">
+                    <p>"My clients love being able to book consultations online at their convenience. It's been a game-changer for my law firm."</p>
+                    <div class="author">- Robert Williams, Attorney</div>
+                </div>
+                <div class="testimonial">
+                    <p>"The automated reminders and calendar sync have saved my administrative team hours each week. Highly recommended!"</p>
+                    <div class="author">- Jennifer Lee, Clinic Manager</div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2023 Professional Booking System. All rights reserved.</p>
+            <p>Designed for service businesses including lawyers, dentists, consultants, and healthcare providers</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set minimum date to today
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            let mm = today.getMonth() + 1;
+            let dd = today.getDate();
+            
+            if (mm < 10) mm = '0' + mm;
+            if (dd < 10) dd = '0' + dd;
+            
+            const todayStr = `${yyyy}-${mm}-${dd}`;
+            document.getElementById('date').setAttribute('min', todayStr);
+            
+            // Form submission
+            document.getElementById('bookingForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simple form validation
+                const service = document.getElementById('service').value;
+                const professional = document.getElementById('professional').value;
+                const date = document.getElementById('date').value;
+                const time = document.getElementById('time').value;
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                
+                if (!service || !professional || !date || !time || !name || !email || !phone) {
+                    alert('Please fill in all required fields');
+                    return;
+                }
+                
+                // Email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert('Please enter a valid email address');
+                    return;
+                }
+                
+                // In a real application, you would send the data to a server here
+                // For this demo, we'll just show the confirmation message
+                document.getElementById('confirmation').style.display = 'block';
+                
+                // Scroll to confirmation message
+                document.getElementById('confirmation').scrollIntoView({behavior: 'smooth'});
+                
+                // Reset form after submission (optional)
+                // document.getElementById('bookingForm').reset();
+            });
+            
+            // Dynamic professional options based on service selection
+            document.getElementById('service').addEventListener('change', function() {
+                const service = this.value;
+                const professionalSelect = document.getElementById('professional');
+                
+                // Clear previous options
+                professionalSelect.innerHTML = '<option value="">Select a professional</option>';
+                
+                // Add professionals based on service type
+                if (service === 'consultation' || service === 'legal' || service === 'case-review') {
+                    professionalSelect.innerHTML += `
+                        <option value="mr-johnson">Atty. Johnson (Lawyer)</option>
+                        <option value="ms-williams">Atty. Williams (Lawyer)</option>
+                    `;
+                } else if (service === 'dental-checkup' || service === 'cleaning' || service === 'whitening') {
+                    professionalSelect.innerHTML += `
+                        <option value="dr-smith">Dr. Smith (Dentist)</option>
+                        <option value="dr-jones">Dr. Jones (Dentist)</option>
+                    `;
+                } else {
+                    professionalSelect.innerHTML += `
+                        <option value="dr-smith">Dr. Smith (Dentist)</option>
+                        <option value="dr-jones">Dr. Jones (Dentist)</option>
+                        <option value="mr-johnson">Atty. Johnson (Lawyer)</option>
+                        <option value="ms-williams">Atty. Williams (Lawyer)</option>
+                    `;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
