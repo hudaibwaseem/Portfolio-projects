@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PrimeRealty | Find Your Dream Home</title>
+    <title>Luxury Escape | Premium Travel Experiences</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-blue: #1a4b8c;
-            --primary-white: #ffffff;
-            --accent-gold: #d4af37;
-            --light-blue: #e8f0fe;
-            --dark-gray: #333333;
-            --light-gray: #f5f5f5;
-            --text-gray: #666666;
+            --navy: #2C3E50;
+            --gold: #F1C40F;
+            --pearl: #ECF0F1;
+            --charcoal: #1A1A1A;
+            --dark-navy: #1a2530;
         }
         
         * {
@@ -24,12 +22,9 @@
         }
         
         body {
-            background-color: var(--primary-white);
-            color: var(--dark-gray);
+            background-color: var(--charcoal);
+            color: var(--pearl);
             line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
         }
         
         .container {
@@ -41,8 +36,8 @@
         
         /* Header & Navigation */
         header {
-            background-color: var(--primary-white);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: var(--navy);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -61,12 +56,13 @@
         }
         
         .logo h1 {
-            color: var(--primary-blue);
+            color: var(--pearl);
             font-size: 1.8rem;
+            font-weight: 600;
         }
         
         .logo span {
-            color: var(--accent-gold);
+            color: var(--gold);
         }
         
         nav ul {
@@ -80,7 +76,7 @@
         
         nav ul li a {
             text-decoration: none;
-            color: var(--dark-gray);
+            color: var(--pearl);
             font-weight: 500;
             transition: color 0.3s;
             padding: 5px 0;
@@ -94,7 +90,7 @@
             height: 2px;
             bottom: 0;
             left: 0;
-            background-color: var(--accent-gold);
+            background-color: var(--gold);
             transition: width 0.3s;
         }
         
@@ -104,18 +100,18 @@
         }
         
         nav ul li a:hover {
-            color: var(--primary-blue);
+            color: var(--gold);
         }
         
         nav ul li a.active {
-            color: var(--primary-blue);
+            color: var(--gold);
         }
         
         .cta-button {
-            background-color: var(--accent-gold);
-            color: var(--primary-white);
+            background-color: var(--gold);
+            color: var(--navy);
             border: none;
-            padding: 10px 20px;
+            padding: 12px 25px;
             border-radius: 5px;
             font-weight: 600;
             cursor: pointer;
@@ -123,34 +119,35 @@
         }
         
         .cta-button:hover {
-            background-color: #c19b2e;
+            background-color: #e2b60d;
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(26, 75, 140, 0.8), rgba(26, 75, 140, 0.8)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80');
+            background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
             background-size: cover;
             background-position: center;
-            color: var(--primary-white);
-            padding: 80px 0;
+            padding: 120px 0;
             text-align: center;
         }
         
         .hero h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 20px;
+            color: var(--pearl);
         }
         
         .hero p {
             font-size: 1.2rem;
             max-width: 700px;
-            margin: 0 auto 30px;
+            margin: 0 auto 40px;
+            color: var(--pearl);
         }
         
         .search-bar {
-            background-color: var(--primary-white);
+            background-color: rgba(236, 240, 241, 0.9);
             border-radius: 8px;
-            padding: 20px;
+            padding: 25px;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
@@ -166,191 +163,289 @@
         
         .search-input select, .search-input input {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             border: 1px solid #ddd;
             border-radius: 5px;
+            background-color: white;
         }
         
         .search-button {
-            background-color: var(--accent-gold);
-            color: var(--primary-white);
+            background-color: var(--gold);
+            color: var(--navy);
             border: none;
-            padding: 12px 25px;
+            padding: 14px 30px;
             border-radius: 5px;
             font-weight: 600;
             cursor: pointer;
             margin: 10px;
+            transition: background-color 0.3s;
         }
         
-        /* Page Content */
-        .page-content {
-            flex: 1;
-            padding: 40px 0;
+        .search-button:hover {
+            background-color: #e2b60d;
         }
         
+        /* Featured Destinations */
         .section-title {
             text-align: center;
-            margin: 30px 0;
+            margin: 60px 0 40px;
         }
         
         .section-title h2 {
-            color: var(--primary-blue);
-            font-size: 2rem;
-            margin-bottom: 10px;
+            color: var(--gold);
+            font-size: 2.2rem;
+            margin-bottom: 15px;
         }
         
         .section-title p {
-            color: var(--text-gray);
+            color: var(--pearl);
+            max-width: 700px;
+            margin: 0 auto;
         }
         
-        /* Properties Grid */
-        .properties {
+        .destinations {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 50px;
+            gap: 30px;
+            margin-bottom: 60px;
         }
         
-        .property-card {
-            background-color: var(--primary-white);
+        .destination-card {
+            background-color: var(--dark-navy);
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s;
         }
         
-        .property-card:hover {
-            transform: translateY(-5px);
+        .destination-card:hover {
+            transform: translateY(-10px);
         }
         
-        .property-image {
+        .destination-image {
             height: 200px;
             overflow: hidden;
         }
         
-        .property-image img {
+        .destination-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s;
         }
         
-        .property-card:hover .property-image img {
+        .destination-card:hover .destination-image img {
             transform: scale(1.05);
         }
         
-        .property-details {
+        .destination-details {
             padding: 20px;
         }
         
-        .property-price {
-            color: var(--primary-blue);
-            font-size: 1.5rem;
-            font-weight: 700;
+        .destination-details h3 {
+            color: var(--gold);
             margin-bottom: 10px;
         }
         
-        .property-address {
-            color: var(--text-gray);
+        .destination-location {
+            color: var(--pearl);
             margin-bottom: 15px;
+            display: flex;
+            align-items: center;
         }
         
-        .property-features {
+        .destination-location i {
+            margin-right: 8px;
+            color: var(--gold);
+        }
+        
+        .destination-features {
             display: flex;
             justify-content: space-between;
-            border-top: 1px solid #eee;
+            border-top: 1px solid rgba(236, 240, 241, 0.2);
             padding-top: 15px;
             margin-bottom: 15px;
         }
         
-        .property-features span {
+        .destination-features span {
             display: flex;
             align-items: center;
-            color: var(--text-gray);
+            color: var(--pearl);
         }
         
-        .property-features i {
+        .destination-features i {
             margin-right: 5px;
-            color: var(--primary-blue);
+            color: var(--gold);
         }
         
-        /* Property Detail */
-        .property-detail {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin: 40px 0;
-        }
-        
-        .property-gallery {
-            position: relative;
-        }
-        
-        .main-image {
-            height: 400px;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .main-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .thumbnails {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        
-        .thumbnail {
-            width: 80px;
-            height: 80px;
-            border-radius: 5px;
-            overflow: hidden;
-            cursor: pointer;
-            opacity: 0.7;
-            transition: opacity 0.3s;
-        }
-        
-        .thumbnail:hover, .thumbnail.active {
-            opacity: 1;
-        }
-        
-        .thumbnail img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .property-info {
-            background-color: var(--light-gray);
-            padding: 25px;
-            border-radius: 8px;
-        }
-        
-        .property-info h3 {
-            color: var(--primary-blue);
+        .destination-price {
+            color: var(--gold);
+            font-size: 1.4rem;
+            font-weight: 700;
             margin-bottom: 15px;
         }
         
-        .info-grid {
+        /* Offers Section */
+        .offers {
+            background: linear-gradient(to right, var(--navy), var(--dark-navy));
+            padding: 60px 0;
+        }
+        
+        .offer-cards {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .offer-card {
+            background-color: var(--dark-navy);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .offer-image {
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .offer-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .offer-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .offer-content h3 {
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+        
+        .offer-content p {
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .offer-tag {
+            background-color: var(--gold);
+            color: var(--navy);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        /* Page Content */
+        .page-content {
+            padding: 40px 0;
+            min-height: 60vh;
+        }
+        
+        /* Destinations Page */
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 40px 0;
+        }
+        
+        .category-btn {
+            background-color: var(--dark-navy);
+            color: var(--pearl);
+            border: 2px solid var(--gold);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .category-btn:hover,
+        .category-btn.active {
+            background-color: var(--gold);
+            color: var(--navy);
+        }
+        
+        /* Booking Form */
+        .booking-form {
+            background-color: var(--dark-navy);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--gold);
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--pearl);
+        }
+        
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(236, 240, 241, 0.3);
+            border-radius: 5px;
+            background-color: var(--navy);
+            color: var(--pearl);
+        }
+        
+        .form-group textarea {
+            height: 120px;
+        }
+        
+        .payment-options {
+            display: flex;
             gap: 15px;
             margin: 20px 0;
+            flex-wrap: wrap;
         }
         
-        .info-item {
+        .payment-option {
             display: flex;
             align-items: center;
+            background-color: var(--navy);
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
         
-        .info-item i {
-            color: var(--primary-blue);
-            margin-right: 10px;
-            font-size: 1.2rem;
+        .payment-option:hover {
+            background-color: rgba(241, 196, 15, 0.2);
+        }
+        
+        .payment-option input {
+            margin-right: 8px;
         }
         
         /* About Us */
@@ -362,7 +457,7 @@
         }
         
         .about-text h3 {
-            color: var(--primary-blue);
+            color: var(--gold);
             margin: 20px 0 10px;
         }
         
@@ -372,14 +467,14 @@
         
         .team-members {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
             margin: 40px 0;
         }
         
         .team-member {
             text-align: center;
-            background-color: var(--light-gray);
+            background-color: var(--dark-navy);
             padding: 20px;
             border-radius: 8px;
         }
@@ -390,87 +485,59 @@
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 15px;
+            border: 3px solid var(--gold);
         }
         
         .team-member h4 {
-            color: var(--primary-blue);
+            color: var(--gold);
             margin-bottom: 5px;
         }
         
         .team-member p {
-            color: var(--text-gray);
+            color: var(--pearl);
         }
         
-        /* Services */
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
-        }
-        
-        .service-card {
-            background-color: var(--light-gray);
-            padding: 30px;
-            border-radius: 8px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .service-card i {
-            font-size: 2.5rem;
-            color: var(--primary-blue);
-            margin-bottom: 15px;
-        }
-        
-        .service-card h3 {
-            color: var(--primary-blue);
-            margin-bottom: 15px;
-        }
-        
-        /* Contact Us */
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin: 40px 0;
-        }
-        
+        /* Contact Form */
         .contact-form {
-            background-color: var(--light-gray);
+            background-color: var(--dark-navy);
             padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            background-color: var(--dark-navy);
+            padding: 20px;
             border-radius: 8px;
         }
         
-        .form-group {
-            margin-bottom: 20px;
+        .contact-item i {
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-right: 15px;
         }
         
-        .form-group label {
-            display: block;
+        .contact-details h4 {
+            color: var(--gold);
             margin-bottom: 5px;
-            font-weight: 500;
-        }
-        
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        
-        .form-group textarea {
-            height: 150px;
         }
         
         .map-container {
             height: 400px;
             border-radius: 8px;
             overflow: hidden;
+            margin: 40px 0;
         }
         
         .map-container iframe {
@@ -479,57 +546,11 @@
             border: none;
         }
         
-        .contact-info {
-            margin-top: 30px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .contact-item i {
-            font-size: 1.2rem;
-            color: var(--primary-blue);
-            margin-right: 15px;
-            width: 20px;
-        }
-        
-        /* USP Section */
-        .usp {
-            background-color: var(--light-blue);
-            padding: 60px 0;
-        }
-        
-        .usp-items {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        
-        .usp-item {
-            text-align: center;
-            padding: 20px;
-        }
-        
-        .usp-item i {
-            font-size: 2.5rem;
-            color: var(--primary-blue);
-            margin-bottom: 15px;
-        }
-        
-        .usp-item h3 {
-            margin-bottom: 10px;
-            color: var(--primary-blue);
-        }
-        
         /* Footer */
         footer {
-            background-color: var(--primary-blue);
-            color: var(--primary-white);
+            background-color: var(--navy);
+            color: var(--pearl);
             padding: 50px 0 20px;
-            margin-top: auto;
         }
         
         .footer-content {
@@ -543,6 +564,7 @@
             font-size: 1.2rem;
             margin-bottom: 20px;
             position: relative;
+            color: var(--gold);
         }
         
         .footer-column h3::after {
@@ -552,7 +574,7 @@
             left: 0;
             width: 40px;
             height: 2px;
-            background-color: var(--accent-gold);
+            background-color: var(--gold);
         }
         
         .footer-column ul {
@@ -570,7 +592,7 @@
         }
         
         .footer-column a:hover {
-            color: var(--accent-gold);
+            color: var(--gold);
         }
         
         .social-icons {
@@ -591,7 +613,7 @@
         }
         
         .social-icons a:hover {
-            background-color: var(--accent-gold);
+            background-color: var(--gold);
         }
         
         .copyright {
@@ -600,33 +622,10 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        /* Page Navigation */
-        .page-navigation {
-            display: none;
-            text-align: center;
-            margin: 20px 0;
-        }
-        
-        .page-btn {
-            background-color: var(--primary-blue);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin: 0 10px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        
         /* Responsive Design */
         @media (max-width: 992px) {
-            .property-detail,
-            .about-content,
-            .contact-content {
+            .about-content {
                 grid-template-columns: 1fr;
-            }
-            
-            .main-image {
-                height: 300px;
             }
         }
         
@@ -646,7 +645,7 @@
             }
             
             .hero h2 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
             .search-bar {
@@ -663,8 +662,8 @@
                 margin: 10px 0;
             }
             
-            .page-navigation {
-                display: block;
+            .form-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -674,547 +673,548 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <h1>Prime<span>Realty</span></h1>
+                <h1>Luxury<span>Escape</span></h1>
             </div>
             <nav>
                 <ul>
                     <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
-                    <li><a href="#" class="nav-link" data-page="properties">Properties</a></li>
+                    <li><a href="#" class="nav-link" data-page="destinations">Destinations</a></li>
+                    <li><a href="#" class="nav-link" data-page="booking">Booking</a></li>
                     <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
-                    <li><a href="#" class="nav-link" data-page="services">Services</a></li>
                     <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
                 </ul>
             </nav>
-            <button class="cta-button">Contact Agent</button>
+            <button class="cta-button">Book Now</button>
         </div>
     </header>
 
     <!-- Main Content Area -->
     <main class="container">
-        <!-- Page Navigation (for mobile) -->
-        <div class="page-navigation">
-            <button class="page-btn" data-page="home">Home</button>
-            <button class="page-btn" data-page="properties">Properties</button>
-            <button class="page-btn" data-page="about">About</button>
-            <button class="page-btn" data-page="services">Services</button>
-            <button class="page-btn" data-page="contact">Contact</button>
-        </div>
-
         <!-- Home Page -->
         <div id="home-page" class="page-content">
             <!-- Hero Section -->
             <section class="hero">
-                <div class="container">
-                    <h2>Find Your Dream Home Today</h2>
-                    <p>Discover the perfect property from our extensive collection of premium listings</p>
-                    
-                    <div class="search-bar">
-                        <div class="search-input">
-                            <select>
-                                <option>Select Location</option>
-                                <option>New York</option>
-                                <option>Los Angeles</option>
-                                <option>Chicago</option>
-                                <option>Miami</option>
-                            </select>
-                        </div>
-                        <div class="search-input">
-                            <select>
-                                <option>Price Range</option>
-                                <option>Under $100,000</option>
-                                <option>$100,000 - $250,000</option>
-                                <option>$250,000 - $500,000</option>
-                                <option>Over $500,000</option>
-                            </select>
-                        </div>
-                        <div class="search-input">
-                            <select>
-                                <option>Property Type</option>
-                                <option>House</option>
-                                <option>Apartment</option>
-                                <option>Commercial</option>
-                                <option>Land</option>
-                            </select>
-                        </div>
-                        <button class="search-button">Search</button>
+                <h2>Discover the World in Luxury</h2>
+                <p>Experience bespoke travel with our exclusive packages and personalized service</p>
+                
+                <div class="search-bar">
+                    <div class="search-input">
+                        <select>
+                            <option>Select Destination</option>
+                            <option>Paris, France</option>
+                            <option>Santorini, Greece</option>
+                            <option>Maldives</option>
+                            <option>Kyoto, Japan</option>
+                            <option>Swiss Alps</option>
+                        </select>
                     </div>
+                    <div class="search-input">
+                        <input type="date" placeholder="Check-in Date">
+                    </div>
+                    <div class="search-input">
+                        <input type="date" placeholder="Check-out Date">
+                    </div>
+                    <div class="search-input">
+                        <select>
+                            <option>Travel Type</option>
+                            <option>Luxury</option>
+                            <option>Adventure</option>
+                            <option>Beach</option>
+                            <option>Cultural</option>
+                            <option>Historical</option>
+                        </select>
+                    </div>
+                    <button class="search-button">Search</button>
                 </div>
             </section>
 
-            <!-- Featured Properties -->
+            <!-- Featured Destinations -->
             <section>
                 <div class="section-title">
-                    <h2>Featured Properties</h2>
-                    <p>Explore our handpicked selection of premium properties</p>
+                    <h2>Featured Destinations</h2>
+                    <p>Explore our handpicked selection of luxury travel experiences</p>
                 </div>
                 
-                <div class="properties">
-                    <!-- Property 1 -->
-                    <div class="property-card">
-                        <div class="property-image">
-                            <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=784&q=80" alt="Luxury Villa">
+                <div class="destinations">
+                    <!-- Destination 1 -->
+                    <div class="destination-card">
+                        <div class="destination-image">
+                            <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Santorini">
                         </div>
-                        <div class="property-details">
-                            <div class="property-price">$525,000</div>
-                            <div class="property-address">123 Luxury Lane, Beverly Hills, CA</div>
-                            <div class="property-features">
-                                <span><i class="fas fa-bed"></i> 4 Beds</span>
-                                <span><i class="fas fa-bath"></i> 3 Baths</span>
-                                <span><i class="fas fa-ruler-combined"></i> 2,500 sq.ft.</span>
+                        <div class="destination-details">
+                            <h3>Santorini Getaway</h3>
+                            <div class="destination-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Santorini, Greece</span>
                             </div>
+                            <p>Experience the breathtaking views and stunning sunsets of Santorini from your private villa.</p>
+                            <div class="destination-features">
+                                <span><i class="fas fa-clock"></i> 7 Days</span>
+                                <span><i class="fas fa-user"></i> 2 Guests</span>
+                            </div>
+                            <div class="destination-price">$3,499</div>
                             <button class="cta-button">View Details</button>
                         </div>
                     </div>
                     
-                    <!-- Property 2 -->
-                    <div class="property-card">
-                        <div class="property-image">
-                            <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Modern Apartment">
+                    <!-- Destination 2 -->
+                    <div class="destination-card">
+                        <div class="destination-image">
+                            <img src="https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" alt="Maldives">
                         </div>
-                        <div class="property-details">
-                            <div class="property-price">$375,000</div>
-                            <div class="property-address">456 Downtown Ave, New York, NY</div>
-                            <div class="property-features">
-                                <span><i class="fas fa-bed"></i> 3 Beds</span>
-                                <span><i class="fas fa-bath"></i> 2 Baths</span>
-                                <span><i class="fas fa-ruler-combined"></i> 1,800 sq.ft.</span>
+                        <div class="destination-details">
+                            <h3>Maldives Paradise</h3>
+                            <div class="destination-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Maldives</span>
                             </div>
+                            <p>Relax in your overwater bungalow with direct access to crystal clear turquoise waters.</p>
+                            <div class="destination-features">
+                                <span><i class="fas fa-clock"></i> 10 Days</span>
+                                <span><i class="fas fa-user"></i> 2 Guests</span>
+                            </div>
+                            <div class="destination-price">$5,299</div>
                             <button class="cta-button">View Details</button>
                         </div>
                     </div>
                     
-                    <!-- Property 3 -->
-                    <div class="property-card">
-                        <div class="property-image">
-                            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="Suburban House">
+                    <!-- Destination 3 -->
+                    <div class="destination-card">
+                        <div class="destination-image">
+                            <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1164&q=80" alt="Swiss Alps">
                         </div>
-                        <div class="property-details">
-                            <div class="property-price">$450,000</div>
-                            <div class="property-address">789 Suburban St, Austin, TX</div>
-                            <div class="property-features">
-                                <span><i class="fas fa-bed"></i> 4 Beds</span>
-                                <span><i class="fas fa-bath"></i> 3 Baths</span>
-                                <span><i class="fas fa-ruler-combined"></i> 2,200 sq.ft.</span>
+                        <div class="destination-details">
+                            <h3>Alpine Retreat</h3>
+                            <div class="destination-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Swiss Alps</span>
                             </div>
+                            <p>Enjoy luxury skiing and cozy evenings by the fireplace in a premium alpine resort.</p>
+                            <div class="destination-features">
+                                <span><i class="fas fa-clock"></i> 7 Days</span>
+                                <span><i class="fas fa-user"></i> 4 Guests</span>
+                            </div>
+                            <div class="destination-price">$4,199</div>
                             <button class="cta-button">View Details</button>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- USP Section -->
-            <section class="usp">
-                <div class="container">
-                    <div class="section-title">
-                        <h2>Why Choose PrimeRealty</h2>
-                        <p>We provide exceptional service to meet all your real estate needs</p>
+            <!-- Offers Section -->
+            <section class="offers">
+                <div class="section-title">
+                    <h2>Special Offers</h2>
+                    <p>Limited time deals for your next luxury escape</p>
+                </div>
+                
+                <div class="offer-cards">
+                    <div class="offer-card">
+                        <div class="offer-image">
+                            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Early Bird Offer">
+                        </div>
+                        <div class="offer-content">
+                            <span class="offer-tag">Save 25%</span>
+                            <h3>Early Bird Special</h3>
+                            <p>Book 90 days in advance and save 25% on selected luxury resorts.</p>
+                            <button class="cta-button">Learn More</button>
+                        </div>
                     </div>
                     
-                    <div class="usp-items">
-                        <div class="usp-item">
-                            <i class="fas fa-home"></i>
-                            <h3>Wide Property Selection</h3>
-                            <p>Access to thousands of listings across the country</p>
+                    <div class="offer-card">
+                        <div class="offer-image">
+                            <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80" alt="Honeymoon Package">
                         </div>
-                        
-                        <div class="usp-item">
-                            <i class="fas fa-dollar-sign"></i>
-                            <h3>Best Price Guarantee</h3>
-                            <p>We ensure you get the best value for your investment</p>
+                        <div class="offer-content">
+                            <span class="offer-tag">Honeymoon</span>
+                            <h3>Romantic Getaway</h3>
+                            <p>Special honeymoon package with complimentary spa treatment and romantic dinner.</p>
+                            <button class="cta-button">Learn More</button>
                         </div>
-                        
-                        <div class="usp-item">
-                            <i class="fas fa-user-tie"></i>
-                            <h3>Expert Agents</h3>
-                            <p>Our experienced agents are dedicated to your success</p>
+                    </div>
+                    
+                    <div class="offer-card">
+                        <div class="offer-image">
+                            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Family Package">
                         </div>
-                        
-                        <div class="usp-item">
-                            <i class="fas fa-headset"></i>
-                            <h3>24/7 Support</h3>
-                            <p>Our team is always available to assist you</p>
+                        <div class="offer-content">
+                            <span class="offer-tag">Family Deal</span>
+                            <h3>Family Adventure</h3>
+                            <p>Kids stay free and 50% off on activities for family packages.</p>
+                            <button class="cta-button">Learn More</button>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
 
-        <!-- Properties Page -->
-        <div id="properties-page" class="page-content" style="display: none;">
+        <!-- Destinations Page -->
+        <div id="destinations-page" class="page-content" style="display: none;">
             <div class="section-title">
-                <h2>Property Listings</h2>
-                <p>Find your perfect home from our extensive collection</p>
+                <h2>Explore Destinations</h2>
+                <p>Discover our curated collection of luxury travel experiences around the world</p>
             </div>
 
-            <!-- Filters -->
-            <div class="search-bar">
-                <div class="search-input">
-                    <select>
-                        <option>Select Location</option>
-                        <option>New York</option>
-                        <option>Los Angeles</option>
-                        <option>Chicago</option>
-                        <option>Miami</option>
-                    </select>
-                </div>
-                <div class="search-input">
-                    <select>
-                        <option>Price Range</option>
-                        <option>Under $100,000</option>
-                        <option>$100,000 - $250,000</option>
-                        <option>$250,000 - $500,000</option>
-                        <option>Over $500,000</option>
-                    </select>
-                </div>
-                <div class="search-input">
-                    <select>
-                        <option>Property Type</option>
-                        <option>House</option>
-                        <option>Apartment</option>
-                        <option>Commercial</option>
-                        <option>Land</option>
-                    </select>
-                </div>
-                <div class="search-input">
-                    <select>
-                        <option>Size</option>
-                        <option>Under 1,000 sq.ft.</option>
-                        <option>1,000 - 2,000 sq.ft.</option>
-                        <option>2,000 - 3,000 sq.ft.</option>
-                        <option>Over 3,000 sq.ft.</option>
-                    </select>
-                </div>
-                <button class="search-button">Apply Filters</button>
+            <div class="categories">
+                <button class="category-btn active">All</button>
+                <button class="category-btn">Beach</button>
+                <button class="category-btn">Mountain</button>
+                <button class="category-btn">City</button>
+                <button class="category-btn">Cultural</button>
+                <button class="category-btn">Adventure</button>
+                <button class="category-btn">Luxury</button>
             </div>
 
-            <!-- Properties Grid -->
-            <div class="properties">
-                <!-- Property 1 -->
-                <div class="property-card">
-                    <div class="property-image">
-                        <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=784&q=80" alt="Luxury Villa">
+            <div class="destinations">
+                <!-- Destination 1 -->
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1539667547529-84b2b9d3b9e7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Paris">
                     </div>
-                    <div class="property-details">
-                        <div class="property-price">$525,000</div>
-                        <div class="property-address">123 Luxury Lane, Beverly Hills, CA</div>
-                        <div class="property-features">
-                            <span><i class="fas fa-bed"></i> 4 Beds</span>
-                            <span><i class="fas fa-bath"></i> 3 Baths</span>
-                            <span><i class="fas fa-ruler-combined"></i> 2,500 sq.ft.</span>
+                    <div class="destination-details">
+                        <h3>Parisian Luxury</h3>
+                        <div class="destination-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Paris, France</span>
                         </div>
+                        <p>Experience the city of lights with private tours and luxury accommodations.</p>
+                        <div class="destination-features">
+                            <span><i class="fas fa-clock"></i> 5 Days</span>
+                            <span><i class="fas fa-user"></i> 2 Guests</span>
+                        </div>
+                        <div class="destination-price">$2,899</div>
                         <button class="cta-button">View Details</button>
                     </div>
                 </div>
                 
-                <!-- Property 2 -->
-                <div class="property-card">
-                    <div class="property-image">
-                        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Modern Apartment">
+                <!-- Destination 2 -->
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1543085614-ef45734bb3ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Kyoto">
                     </div>
-                    <div class="property-details">
-                        <div class="property-price">$375,000</div>
-                        <div class="property-address">456 Downtown Ave, New York, NY</div>
-                        <div class="property-features">
-                            <span><i class="fas fa-bed"></i> 3 Beds</span>
-                            <span><i class="fas fa-bath"></i> 2 Baths</span>
-                            <span><i class="fas fa-ruler-combined"></i> 1,800 sq.ft.</span>
+                    <div class="destination-details">
+                        <h3>Japanese Culture</h3>
+                        <div class="destination-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Kyoto, Japan</span>
                         </div>
+                        <p>Immerse yourself in traditional Japanese culture with exclusive experiences.</p>
+                        <div class="destination-features">
+                            <span><i class="fas fa-clock"></i> 8 Days</span>
+                            <span><i class="fas fa-user"></i> 2 Guests</span>
+                        </div>
+                        <div class="destination-price">$3,799</div>
                         <button class="cta-button">View Details</button>
                     </div>
                 </div>
                 
-                <!-- Property 3 -->
-                <div class="property-card">
-                    <div class="property-image">
-                        <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="Suburban House">
+                <!-- Destination 3 -->
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1506970840772-503770eb8c51?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Safari">
                     </div>
-                    <div class="property-details">
-                        <div class="property-price">$450,000</div>
-                        <div class="property-address">789 Suburban St, Austin, TX</div>
-                        <div class="property-features">
-                            <span><i class="fas fa-bed"></i> 4 Beds</span>
-                            <span><i class="fas fa-bath"></i> 3 Baths</span>
-                            <span><i class="fas fa-ruler-combined"></i> 2,200 sq.ft.</span>
+                    <div class="destination-details">
+                        <h3>African Safari</h3>
+                        <div class="destination-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Serengeti, Tanzania</span>
                         </div>
+                        <p>Luxury safari experience with private guides and premium accommodations.</p>
+                        <div class="destination-features">
+                            <span><i class="fas fa-clock"></i> 10 Days</span>
+                            <span><i class="fas fa-user"></i> 4 Guests</span>
+                        </div>
+                        <div class="destination-price">$6,499</div>
                         <button class="cta-button">View Details</button>
                     </div>
                 </div>
 
-                <!-- Property 4 -->
-                <div class="property-card">
-                    <div class="property-image">
-                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80" alt="Luxury Home">
+                <!-- Destination 4 -->
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1594741158701-e5ab913e178b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Bali">
                     </div>
-                    <div class="property-details">
-                        <div class="property-price">$750,000</div>
-                        <div class="property-address">101 Hillside Dr, San Francisco, CA</div>
-                        <div class="property-features">
-                            <span><i class="fas fa-bed"></i> 5 Beds</span>
-                            <span><i class="fas fa-bath"></i> 4 Baths</span>
-                            <span><i class="fas fa-ruler-combined"></i> 3,500 sq.ft.</span>
+                    <div class="destination-details">
+                        <h3>Bali Retreat</h3>
+                        <div class="destination-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Bali, Indonesia</span>
                         </div>
+                        <p>Luxury villa experience with private pool and personalized services.</p>
+                        <div class="destination-features">
+                            <span><i class="fas fa-clock"></i> 7 Days</span>
+                            <span><i class="fas fa-user"></i> 2 Guests</span>
+                        </div>
+                        <div class="destination-price">$2,999</div>
                         <button class="cta-button">View Details</button>
                     </div>
                 </div>
 
-                <!-- Property 5 -->
-                <div class="property-card">
-                    <div class="property-image">
-                        <img src="https://images.unsplash.com/photo-1448630360428-65456885c650?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=c crop&w=1167&q=80" alt="Beach House">
+                <!-- Destination 5 -->
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Italy">
                     </div>
-                    <div class="property-details">
-                        <div class="property-price">$1,200,000</div>
-                        <div class="property-address">222 Ocean Ave, Miami, FL</div>
-                        <div class="property-features">
-                            <span><i class="fas fa-bed"></i> 4 Beds</span>
-                            <span><i class="fas fa-bath"></i> 3 Baths</span>
-                            <span><i class="fas fa-ruler-combined"></i> 2,800 sq.ft.</span>
+                    <div class="destination-details">
+                        <h3>Italian Coast</h3>
+                        <div class="destination-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Amalfi Coast, Italy</span>
                         </div>
+                        <p>Experience the beauty of the Italian coastline with luxury accommodations.</p>
+                        <div class="destination-features">
+                            <span><i class="fas fa-clock"></i> 7 Days</span>
+                            <span><i class="fas fa-user"></i> 2 Guests</span>
+                        </div>
+                        <div class="destination-price">$4,299</div>
                         <button class="cta-button">View Details</button>
                     </div>
                 </div>
 
-                <!-- Property 6 -->
-                <div class="property-card">
-                    <div class="property-image">
-                        <img src="https://images.unsplash.com/photo-1586448900407-7397af48d116?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="City Apartment">
+                <!-- Destination 6 -->
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="https://images.unsplash.com/photo-1582571352032-448f7928eca2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1167&q=80" alt="New York">
                     </div>
-                    <div class="property-details">
-                        <div class="property-price">$325,000</div>
-                        <div class="property-address">333 Metro St, Chicago, IL</div>
-                        <div class="property-features">
-                            <span><i class="fas fa-bed"></i> 2 Beds</span>
-                            <span><i class="fas fa-bath"></i> 2 Baths</span>
-                            <span><i class="fas fa-ruler-combined"></i> 1,200 sq.ft.</span>
+                    <div class="destination-details">
+                        <h3>New York City</h3>
+                        <div class="destination-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>New York, USA</span>
                         </div>
+                        <p>Luxury city break with premium hotel and exclusive city tours.</p>
+                        <div class="destination-features">
+                            <span><i class="fas fa-clock"></i> 5 Days</span>
+                            <span><i class="fas fa-user"></i> 2 Guests</span>
+                        </div>
+                        <div class="destination-price">$3,199</div>
                         <button class="cta-button">View Details</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Property Detail Page -->
-        <div id="property-detail-page" class="page-content" style="display: none;">
+        <!-- Booking Page -->
+        <div id="booking-page" class="page-content" style="display: none;">
             <div class="section-title">
-                <h2>Luxury Villa in Beverly Hills</h2>
-                <p>123 Luxury Lane, Beverly Hills, CA</p>
+                <h2>Book Your Luxury Escape</h2>
+                <p>Complete the form below to reserve your premium travel experience</p>
             </div>
 
-            <div class="property-detail">
-                <div class="property-gallery">
-                    <div class="main-image">
-                        <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=784&q=80" alt="Luxury Villa">
+            <div class="booking-form">
+                <h3 class="form-title">Travel Details</h3>
+                
+                <form>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="destination">Destination</label>
+                            <select id="destination" required>
+                                <option value="">Select Destination</option>
+                                <option value="santorini">Santorini, Greece</option>
+                                <option value="maldives">Maldives</option>
+                                <option value="alps">Swiss Alps</option>
+                                <option value="paris">Paris, France</option>
+                                <option value="kyoto">Kyoto, Japan</option>
+                                <option value="safari">Serengeti Safari</option>
+                                <option value="bali">Bali, Indonesia</option>
+                                <option value="amalfi">Amalfi Coast, Italy</option>
+                                <option value="nyc">New York City, USA</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="travel-type">Travel Type</label>
+                            <select id="travel-type" required>
+                                <option value="">Select Travel Type</option>
+                                <option value="luxury">Luxury</option>
+                                <option value="adventure">Adventure</option>
+                                <option value="beach">Beach</option>
+                                <option value="cultural">Cultural</option>
+                                <option value="historical">Historical</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="check-in">Check-in Date</label>
+                            <input type="date" id="check-in" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="check-out">Check-out Date</label>
+                            <input type="date" id="check-out" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="guests">Number of Guests</label>
+                            <select id="guests" required>
+                                <option value="">Select Guests</option>
+                                <option value="1">1 Guest</option>
+                                <option value="2">2 Guests</option>
+                                <option value="3">3 Guests</option>
+                                <option value="4">4 Guests</option>
+                                <option value="5">5+ Guests</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="rooms">Number of Rooms</label>
+                            <select id="rooms" required>
+                                <option value="">Select Rooms</option>
+                                <option value="1">1 Room</option>
+                                <option value="2">2 Rooms</option>
+                                <option value="3">3 Rooms</option>
+                                <option value="4">4+ Rooms</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="thumbnails">
-                        <div class="thumbnail active">
-                            <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=784&q=80" alt="Luxury Villa">
+                    
+                    <h3 class="form-title">Traveler Information</h3>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="full-name">Full Name</label>
+                            <input type="text" id="full-name" required>
                         </div>
-                        <div class="thumbnail">
-                            <img src="https://images.unsplash.com/photo-1586448900407-7397af48d116?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Living Room">
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" required>
                         </div>
-                        <div class="thumbnail">
-                            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Kitchen">
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" required>
                         </div>
-                        <div class="thumbnail">
-                            <img src="https://images.unsplash.com/photo-1560448076-3f6f44b6b4a8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80" alt="Bedroom">
+                        
+                        <div class="form-group">
+                            <label for="country">Country</label>
+                            <input type="text" id="country" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="passport">Passport Number</label>
+                            <input type="text" id="passport" required>
                         </div>
                     </div>
-                </div>
-
-                <div class="property-info">
-                    <h3>$525,000</h3>
-                    <p>This stunning luxury villa offers breathtaking views, premium finishes, and an unbeatable location in the heart of Beverly Hills.</p>
                     
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <i class="fas fa-bed"></i>
-                            <span>4 Bedrooms</span>
+                    <h3 class="form-title">Special Requests</h3>
+                    
+                    <div class="form-group">
+                        <label for="requests">Additional Requests (Optional)</label>
+                        <textarea id="requests" placeholder="Any special requirements or preferences..."></textarea>
+                    </div>
+                    
+                    <h3 class="form-title">Payment Method</h3>
+                    
+                    <div class="payment-options">
+                        <div class="payment-option">
+                            <input type="radio" id="credit-card" name="payment" value="credit-card" checked>
+                            <label for="credit-card">Credit Card</label>
                         </div>
-                        <div class="info-item">
-                            <i class="fas fa-bath"></i>
-                            <span>3 Bathrooms</span>
+                        
+                        <div class="payment-option">
+                            <input type="radio" id="paypal" name="payment" value="paypal">
+                            <label for="paypal">PayPal</label>
                         </div>
-                        <div class="info-item">
-                            <i class="fas fa-ruler-combined"></i>
-                            <span>2,500 sq.ft.</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-car"></i>
-                            <span>2 Garage spaces</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>Year built: 2018</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-home"></i>
-                            <span>Property type: Single Family</span>
+                        
+                        <div class="payment-option">
+                            <input type="radio" id="bank-transfer" name="payment" value="bank-transfer">
+                            <label for="bank-transfer">Bank Transfer</label>
                         </div>
                     </div>
-
-                    <h3>Description</h3>
-                    <p>This exquisite luxury villa features an open floor plan with high ceilings, hardwood floors, and floor-to-ceiling windows that flood the space with natural light. The gourmet kitchen boasts top-of-the-line appliances, custom cabinetry, and a large island perfect for entertaining.</p>
                     
-                    <p>The master suite includes a spa-like bathroom with a soaking tub and walk-in shower, plus a spacious walk-in closet. Outdoor living is enhanced with a covered patio, built-in barbecue, and a sparkling pool with spa.</p>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="card-name">Name on Card</label>
+                            <input type="text" id="card-name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="card-number">Card Number</label>
+                            <input type="text" id="card-number" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="expiry">Expiry Date</label>
+                            <input type="text" id="expiry" placeholder="MM/YY" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" required>
+                        </div>
+                    </div>
                     
-                    <button class="cta-button">Contact Agent</button>
-                </div>
-            </div>
-
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.015771909328!2d-118.401842424336!3d34.07360607315046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bcbb6d264c59%3A0x2bf3c2bce7df2d1c!2sBeverly%20Hills%2C%20CA%2C%20USA!5e0!3m2!1sen!2s!4v1685724573828!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
+                    <div class="form-group">
+                        <button type="submit" class="cta-button" style="width: 100%; padding: 15px; margin-top: 20px;">Complete Booking</button>
+                    </div>
+                </form>
             </div>
         </div>
 
         <!-- About Us Page -->
         <div id="about-page" class="page-content" style="display: none;">
             <div class="section-title">
-                <h2>About PrimeRealty</h2>
-                <p>Your trusted partner in real estate for over 15 years</p>
+                <h2>About Luxury Escape</h2>
+                <p>Your trusted partner for premium travel experiences since 2005</p>
             </div>
 
             <div class="about-content">
                 <div class="about-text">
                     <h3>Our Story</h3>
-                    <p>Founded in 2008, PrimeRealty has grown from a small local agency to one of the most respected real estate firms in the region. Our journey began with a simple mission: to make buying and selling properties a seamless and enjoyable experience.</p>
+                    <p>Founded in 2005 by travel enthusiasts Sarah and Michael Johnson, Luxury Escape began as a small boutique travel agency with a vision to create unforgettable luxury travel experiences. What started as a passion project has grown into one of the most respected luxury travel companies in the industry.</p>
                     
                     <h3>Our Mission</h3>
-                    <p>We strive to provide exceptional service by combining local expertise with cutting-edge technology. Our team of dedicated professionals is committed to helping you find the perfect property or get the best value for your current home.</p>
+                    <p>Our mission is to craft personalized, exceptional travel experiences that exceed our clients' expectations. We believe that travel should be transformative, inspiring, and seamless from start to finish.</p>
                     
                     <h3>Our Values</h3>
-                    <p>At PrimeRealty, we believe in integrity, transparency, and putting our clients first. We build lasting relationships based on trust and results, not just transactions.</p>
+                    <p>We are committed to excellence, authenticity, and sustainability in all our operations. We partner with eco-conscious luxury resorts and experiences that respect local cultures and environments.</p>
+                    
+                    <h3>Why Choose Us?</h3>
+                    <p>With over 18 years of experience, we have built relationships with the finest hotels, resorts, and experience providers around the world. Our team of travel experts personally vet every property and experience we offer.</p>
+                    
+                    <h3>Certifications</h3>
+                    <p>We are proud members of the Luxury Travel Network, ASTA (American Society of Travel Advisors), and have been awarded the Excellence in Travel award for five consecutive years.</p>
                 </div>
                 
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1073&q=80" alt="Our Office" style="width: 100%; border-radius: 8px;">
+                    <img src="https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" alt="Luxury Travel" style="width: 100%; border-radius: 8px;">
                 </div>
             </div>
 
             <div class="section-title">
                 <h2>Meet Our Team</h2>
-                <p>Experienced professionals dedicated to your success</p>
+                <p>Our dedicated travel experts are here to craft your perfect journey</p>
             </div>
 
             <div class="team-members">
                 <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="Sarah Johnson">
+                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah Johnson">
                     <h4>Sarah Johnson</h4>
-                    <p>CEO & Founder</p>
+                    <p>Founder & CEO</p>
                 </div>
                 
                 <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80" alt="Michael Chen">
-                    <h4>Michael Chen</h4>
-                    <p>Head of Sales</p>
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Johnson">
+                    <h4>Michael Johnson</h4>
+                    <p>Co-Founder & Operations Director</p>
                 </div>
                 
                 <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="Emily Rodriguez">
-                    <h4>Emily Rodriguez</h4>
-                    <p>Senior Agent</p>
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Emily Chen">
+                    <h4>Emily Chen</h4>
+                    <p>Head of Travel Design</p>
                 </div>
                 
                 <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=699&q=80" alt="David Wilson">
+                    <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="David Wilson">
                     <h4>David Wilson</h4>
-                    <p>Property Manager</p>
-                </div>
-            </div>
-
-            <div class="section-title">
-                <h2>Certifications & Memberships</h2>
-            </div>
-
-            <div class="services">
-                <div class="service-card">
-                    <i class="fas fa-award"></i>
-                    <h3>National Association of Realtors</h3>
-                    <p>Full member since 2009</p>
-                </div>
-                
-                <div class="service-card">
-                    <i class="fas fa-medal"></i>
-                    <h3>Best Real Estate Agency 2022</h3>
-                    <p>Real Estate Excellence Awards</p>
-                </div>
-                
-                <div class="service-card">
-                    <i class="fas fa-certificate"></i>
-                    <h3>Certified Property Manager</h3>
-                    <p>Industry recognized certification</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Services Page -->
-        <div id="services-page" class="page-content" style="display: none;">
-            <div class="section-title">
-                <h2>Our Services</h2>
-                <p>Comprehensive real estate solutions for all your needs</p>
-            </div>
-
-            <div class="services">
-                <div class="service-card">
-                    <i class="fas fa-home"></i>
-                    <h3>Buying</h3>
-                    <p>We'll help you find your dream home with access to exclusive listings and expert negotiation skills.</p>
-                </div>
-                
-                <div class="service-card">
-                    <i class="fas fa-dollar-sign"></i>
-                    <h3>Selling</h3>
-                    <p>Maximize your property's value with our strategic marketing and pricing approach.</p>
-                </div>
-                
-                <div class="service-card">
-                    <i class="fas fa-key"></i>
-                    <h3>Renting</h3>
-                    <p>Find the perfect rental property or list your investment property with our management services.</p>
-                </div>
-                
-                <div class="service-card">
-                    <i class="fas fa-building"></i>
-                    <h3>Property Management</h3>
-                    <p>Comprehensive management services for rental properties, including maintenance and tenant relations.</p>
-                </div>
-                
-                <div class="service-card">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Investment Consulting</h3>
-                    <p>Expert advice on building your real estate portfolio and maximizing returns on investment.</p>
-                </div>
-                
-                <div class="service-card">
-                    <i class="fas fa-handshake"></i>
-                    <h3>Relocation Services</h3>
-                    <p>Specialized assistance for clients moving to new cities or countries.</p>
-                </div>
-            </div>
-
-            <div class="section-title">
-                <h2>How It Works</h2>
-            </div>
-
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>1. Consultation</h3>
-                    <p>We begin with a detailed consultation to understand your needs, preferences, and budget.</p>
-                    
-                    <h3>2. Property Search</h3>
-                    <p>Our agents use advanced tools and their local expertise to find properties that match your criteria.</p>
-                    
-                    <h3>3. Viewings</h3>
-                    <p>We schedule and accompany you on property viewings at your convenience.</p>
-                    
-                    <h3>4. Negotiation</h3>
-                    <p>Our experienced negotiators work to get you the best possible price and terms.</p>
-                    
-                    <h3>5. Closing</h3>
-                    <p>We guide you through the entire closing process, ensuring a smooth transaction.</p>
-                </div>
-                
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80" alt="Real Estate Process" style="width: 100%; border-radius: 8px;">
+                    <p>Luxury Accommodations Manager</p>
                 </div>
             </div>
         </div>
@@ -1223,67 +1223,93 @@
         <div id="contact-page" class="page-content" style="display: none;">
             <div class="section-title">
                 <h2>Contact Us</h2>
-                <p>Get in touch with our team for any inquiries</p>
+                <p>Get in touch with our travel experts to plan your next luxury escape</p>
             </div>
 
-            <div class="contact-content">
-                <div class="contact-form">
-                    <h3>Send us a Message</h3>
-                    <form>
+            <div class="contact-form">
+                <h3 class="form-title">Send us a Message</h3>
+                <form>
+                    <div class="form-grid">
                         <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" placeholder="Your Name">
+                            <label for="contact-name">Full Name</label>
+                            <input type="text" id="contact-name" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" placeholder="Your Phone">
+                            <label for="contact-email">Email Address</label>
+                            <input type="email" id="contact-email" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" placeholder="Your Email">
+                            <label for="contact-phone">Phone Number</label>
+                            <input type="tel" id="contact-phone" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" placeholder="How can we help you?"></textarea>
+                            <label for="contact-subject">Subject</label>
+                            <select id="contact-subject" required>
+                                <option value="">Select Subject</option>
+                                <option value="booking">Booking Inquiry</option>
+                                <option value="custom">Custom Package Request</option>
+                                <option value="existing">Existing Booking</option>
+                                <option value="general">General Information</option>
+                                <option value="complaint">Complaint</option>
+                                <option value="other">Other</option>
+                            </select>
                         </div>
-                        
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-message">Message</label>
+                        <textarea id="contact-message" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
                         <button type="submit" class="cta-button">Send Message</button>
-                    </form>
-                </div>
-                
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.9663095343008!2d-74.004258724336!3d40.74076997138915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259bf5c8eef01%3A0x41d071c4d5b1c5d0!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1685724772854!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
-                </div>
+                    </div>
+                </form>
             </div>
 
             <div class="contact-info">
                 <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>123 Real Estate Ave, New York, NY 10001</span>
-                </div>
-                
-                <div class="contact-item">
                     <i class="fas fa-phone"></i>
-                    <span>+1 (555) 123-4567</span>
+                    <div class="contact-details">
+                        <h4>Phone</h4>
+                        <p>+1 (555) 123-4567</p>
+                        <p>+1 (555) 987-6543</p>
+                    </div>
                 </div>
                 
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
-                    <span>info@primerealty.com</span>
+                    <div class="contact-details">
+                        <h4>Email</h4>
+                        <p>info@luxuryescape.com</p>
+                        <p>bookings@luxuryescape.com</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <div class="contact-details">
+                        <h4>WhatsApp</h4>
+                        <p>+1 (555) 123-4567</p>
+                        <p>Available 24/7</p>
+                    </div>
                 </div>
                 
                 <div class="contact-item">
                     <i class="fas fa-clock"></i>
-                    <span>Monday-Friday: 9am-6pm, Saturday: 10am-4pm</span>
+                    <div class="contact-details">
+                        <h4>Office Hours</h4>
+                        <p>Monday-Friday: 9am-8pm</p>
+                        <p>Weekends: 10am-6pm</p>
+                    </div>
                 </div>
             </div>
 
-            <div style="display: flex; gap: 15px; margin: 30px 0;">
-                <button class="cta-button"><i class="fab fa-whatsapp"></i> WhatsApp</button>
-                <button class="cta-button"><i class="fas fa-phone"></i> Call Now</button>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.9663095343008!2d-74.004258724336!3d40.74076997138915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259bf5c8eef01%3A0x41d071c4d5b1c5d0!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1685724772854!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </main>
@@ -1293,12 +1319,13 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>PrimeRealty</h3>
-                    <p>Your trusted partner in real estate for over 15 years. We're committed to helping you find your perfect home.</p>
+                    <h3>Luxury Escape</h3>
+                    <p>Creating unforgettable luxury travel experiences since 2005. Your journey of a lifetime starts with us.</p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
@@ -1307,36 +1334,38 @@
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="#" class="nav-link" data-page="home">Home</a></li>
-                        <li><a href="#" class="nav-link" data-page="properties">Properties</a></li>
+                        <li><a href="#" class="nav-link" data-page="destinations">Destinations</a></li>
+                        <li><a href="#" class="nav-link" data-page="booking">Booking</a></li>
                         <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
-                        <li><a href="#" class="nav-link" data-page="services">Services</a></li>
                         <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Services</h3>
+                    <h3>Popular Destinations</h3>
                     <ul>
-                        <li><a href="#">Buying</a></li>
-                        <li><a href="#">Selling</a></li>
-                        <li><a href="#">Renting</a></li>
-                        <li><a href="#">Property Management</a></li>
-                        <li><a href="#">Investment Consulting</a></li>
+                        <li><a href="#">Santorini, Greece</a></li>
+                        <li><a href="#">Maldives</a></li>
+                        <li><a href="#">Swiss Alps</a></li>
+                        <li><a href="#">Paris, France</a></li>
+                        <li><a href="#">Kyoto, Japan</a></li>
+                        <li><a href="#">Bali, Indonesia</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Contact Us</h3>
+                    <h3>Contact Info</h3>
                     <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Real Estate Ave, New York, NY</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Luxury Avenue, New York, NY</li>
                         <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
-                        <li><i class="fas fa-envelope"></i> info@primerealty.com</li>
+                        <li><i class="fas fa-envelope"></i> info@luxuryescape.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9am-8pm, Sat-Sun: 10am-6pm</li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 PrimeRealty. All rights reserved.</p>
+                <p>&copy; 2023 Luxury Escape. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -1346,14 +1375,13 @@
         document.addEventListener('DOMContentLoaded', function() {
             const pages = {
                 'home': document.getElementById('home-page'),
-                'properties': document.getElementById('properties-page'),
+                'destinations': document.getElementById('destinations-page'),
+                'booking': document.getElementById('booking-page'),
                 'about': document.getElementById('about-page'),
-                'services': document.getElementById('services-page'),
                 'contact': document.getElementById('contact-page')
             };
             
             const navLinks = document.querySelectorAll('.nav-link');
-            const pageButtons = document.querySelectorAll('.page-btn');
             
             // Function to show a specific page and hide others
             function showPage(pageId) {
@@ -1389,17 +1417,6 @@
                 });
             });
             
-            // Add click event to page buttons (for mobile)
-            pageButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const pageId = this.dataset.page;
-                    showPage(pageId);
-                    
-                    // Scroll to top
-                    window.scrollTo(0, 0);
-                });
-            });
-            
             // Initialize the page with home visible
             showPage('home');
             
@@ -1408,33 +1425,25 @@
             
             ctaButtons.forEach(button => {
                 button.addEventListener('click', function() {
-                    alert('Thank you for your interest! A real estate agent will contact you shortly.');
-                });
-            });
-            
-            // Property card click functionality
-            const propertyCards = document.querySelectorAll('.property-card');
-            
-            propertyCards.forEach(card => {
-                card.addEventListener('click', function(e) {
-                    if (!e.target.classList.contains('cta-button')) {
-                        showPage('property-detail-page');
-                        window.scrollTo(0, 0);
+                    const buttonText = this.textContent;
+                    if (buttonText.includes('Book') || buttonText.includes('Details')) {
+                        showPage('booking');
+                    } else if (buttonText.includes('Learn More')) {
+                        showPage('destinations');
+                    } else if (buttonText.includes('Send')) {
+                        alert('Thank you for your message! Our travel experts will contact you shortly.');
+                    } else if (buttonText.includes('Complete Booking')) {
+                        alert('Thank you for your booking! Your luxury escape is being prepared.');
                     }
                 });
             });
             
-            // Thumbnail click functionality
-            const thumbnails = document.querySelectorAll('.thumbnail');
+            // Category buttons functionality
+            const categoryButtons = document.querySelectorAll('.category-btn');
             
-            thumbnails.forEach(thumb => {
-                thumb.addEventListener('click', function() {
-                    const mainImage = document.querySelector('.main-image img');
-                    const thumbSrc = this.querySelector('img').src;
-                    mainImage.src = thumbSrc;
-                    
-                    // Update active thumbnail
-                    thumbnails.forEach(t => t.classList.remove('active'));
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
                     this.classList.add('active');
                 });
             });
