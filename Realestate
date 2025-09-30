@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrimeRealty | Find Your Dream Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #1a4b8c;
+            --primary-white: #ffffff;
+            --accent-gold: #d4af37;
+            --light-blue: #e8f0fe;
+            --dark-gray: #333333;
+            --light-gray: #f5f5f5;
+            --text-gray: #666666;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--primary-white);
+            color: var(--dark-gray);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary-white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+        }
+        
+        .logo span {
+            color: var(--accent-gold);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-gold);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-blue);
+        }
+        
+        nav ul li a.active {
+            color: var(--primary-blue);
+        }
+        
+        .cta-button {
+            background-color: var(--accent-gold);
+            color: var(--primary-white);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #c19b2e;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 75, 140, 0.8), rgba(26, 75, 140, 0.8)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--primary-white);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .search-bar {
+            background-color: var(--primary-white);
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .search-input {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+        
+        .search-input select, .search-input input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .search-button {
+            background-color: var(--accent-gold);
+            color: var(--primary-white);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 10px;
+        }
+        
+        /* Page Content */
+        .page-content {
+            flex: 1;
+            padding: 40px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .section-title h2 {
+            color: var(--primary-blue);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .section-title p {
+            color: var(--text-gray);
+        }
+        
+        /* Properties Grid */
+        .properties {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .property-card {
+            background-color: var(--primary-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .property-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .property-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .property-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .property-card:hover .property-image img {
+            transform: scale(1.05);
+        }
+        
+        .property-details {
+            padding: 20px;
+        }
+        
+        .property-price {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .property-address {
+            color: var(--text-gray);
+            margin-bottom: 15px;
+        }
+        
+        .property-features {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .property-features span {
+            display: flex;
+            align-items: center;
+            color: var(--text-gray);
+        }
+        
+        .property-features i {
+            margin-right: 5px;
+            color: var(--primary-blue);
+        }
+        
+        /* Property Detail */
+        .property-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .property-gallery {
+            position: relative;
+        }
+        
+        .main-image {
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .thumbnails {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            border-radius: 5px;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        
+        .thumbnail:hover, .thumbnail.active {
+            opacity: 1;
+        }
+        
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .property-info {
+            background-color: var(--light-gray);
+            padding: 25px;
+            border-radius: 8px;
+        }
+        
+        .property-info h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .info-item i {
+            color: var(--primary-blue);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        /* About Us */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 40px 0;
+        }
+        
+        .about-text h3 {
+            color: var(--primary-blue);
+            margin: 20px 0 10px;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+        }
+        
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .team-member {
+            text-align: center;
+            background-color: var(--light-gray);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+        
+        .team-member h4 {
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+        }
+        
+        .team-member p {
+            color: var(--text-gray);
+        }
+        
+        /* Services */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .service-card {
+            background-color: var(--light-gray);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+        
+        .service-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+        
+        /* Contact Us */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 40px 0;
+        }
+        
+        .contact-form {
+            background-color: var(--light-gray);
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+        }
+        
+        .map-container {
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .contact-info {
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-item i {
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+            margin-right: 15px;
+            width: 20px;
+        }
+        
+        /* USP Section */
+        .usp {
+            background-color: var(--light-blue);
+            padding: 60px 0;
+        }
+        
+        .usp-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .usp-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .usp-item i {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+        
+        .usp-item h3 {
+            margin-bottom: 10px;
+            color: var(--primary-blue);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--primary-white);
+            padding: 50px 0 20px;
+            margin-top: auto;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent-gold);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: var(--accent-gold);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--accent-gold);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Page Navigation */
+        .page-navigation {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .page-btn {
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .property-detail,
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .main-image {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .search-bar {
+                flex-direction: column;
+            }
+            
+            .search-input {
+                width: 100%;
+                margin: 5px 0;
+            }
+            
+            .search-button {
+                width: 100%;
+                margin: 10px 0;
+            }
+            
+            .page-navigation {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Prime<span>Realty</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="properties">Properties</a></li>
+                    <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
+                    <li><a href="#" class="nav-link" data-page="services">Services</a></li>
+                    <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="cta-button">Contact Agent</button>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container">
+        <!-- Page Navigation (for mobile) -->
+        <div class="page-navigation">
+            <button class="page-btn" data-page="home">Home</button>
+            <button class="page-btn" data-page="properties">Properties</button>
+            <button class="page-btn" data-page="about">About</button>
+            <button class="page-btn" data-page="services">Services</button>
+            <button class="page-btn" data-page="contact">Contact</button>
+        </div>
+
+        <!-- Home Page -->
+        <div id="home-page" class="page-content">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="container">
+                    <h2>Find Your Dream Home Today</h2>
+                    <p>Discover the perfect property from our extensive collection of premium listings</p>
+                    
+                    <div class="search-bar">
+                        <div class="search-input">
+                            <select>
+                                <option>Select Location</option>
+                                <option>New York</option>
+                                <option>Los Angeles</option>
+                                <option>Chicago</option>
+                                <option>Miami</option>
+                            </select>
+                        </div>
+                        <div class="search-input">
+                            <select>
+                                <option>Price Range</option>
+                                <option>Under $100,000</option>
+                                <option>$100,000 - $250,000</option>
+                                <option>$250,000 - $500,000</option>
+                                <option>Over $500,000</option>
+                            </select>
+                        </div>
+                        <div class="search-input">
+                            <select>
+                                <option>Property Type</option>
+                                <option>House</option>
+                                <option>Apartment</option>
+                                <option>Commercial</option>
+                                <option>Land</option>
+                            </select>
+                        </div>
+                        <button class="search-button">Search</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Properties -->
+            <section>
+                <div class="section-title">
+                    <h2>Featured Properties</h2>
+                    <p>Explore our handpicked selection of premium properties</p>
+                </div>
+                
+                <div class="properties">
+                    <!-- Property 1 -->
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=784&q=80" alt="Luxury Villa">
+                        </div>
+                        <div class="property-details">
+                            <div class="property-price">$525,000</div>
+                            <div class="property-address">123 Luxury Lane, Beverly Hills, CA</div>
+                            <div class="property-features">
+                                <span><i class="fas fa-bed"></i> 4 Beds</span>
+                                <span><i class="fas fa-bath"></i> 3 Baths</span>
+                                <span><i class="fas fa-ruler-combined"></i> 2,500 sq.ft.</span>
+                            </div>
+                            <button class="cta-button">View Details</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Property 2 -->
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Modern Apartment">
+                        </div>
+                        <div class="property-details">
+                            <div class="property-price">$375,000</div>
+                            <div class="property-address">456 Downtown Ave, New York, NY</div>
+                            <div class="property-features">
+                                <span><i class="fas fa-bed"></i> 3 Beds</span>
+                                <span><i class="fas fa-bath"></i> 2 Baths</span>
+                                <span><i class="fas fa-ruler-combined"></i> 1,800 sq.ft.</span>
+                            </div>
+                            <button class="cta-button">View Details</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Property 3 -->
+                    <div class="property-card">
+                        <div class="property-image">
+                            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="Suburban House">
+                        </div>
+                        <div class="property-details">
+                            <div class="property-price">$450,000</div>
+                            <div class="property-address">789 Suburban St, Austin, TX</div>
+                            <div class="property-features">
+                                <span><i class="fas fa-bed"></i> 4 Beds</span>
+                                <span><i class="fas fa-bath"></i> 3 Baths</span>
+                                <span><i class="fas fa-ruler-combined"></i> 2,200 sq.ft.</span>
+                            </div>
+                            <button class="cta-button">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- USP Section -->
+            <section class="usp">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Why Choose PrimeRealty</h2>
+                        <p>We provide exceptional service to meet all your real estate needs</p>
+                    </div>
+                    
+                    <div class="usp-items">
+                        <div class="usp-item">
+                            <i class="fas fa-home"></i>
+                            <h3>Wide Property Selection</h3>
+                            <p>Access to thousands of listings across the country</p>
+                        </div>
+                        
+                        <div class="usp-item">
+                            <i class="fas fa-dollar-sign"></i>
+                            <h3>Best Price Guarantee</h3>
+                            <p>We ensure you get the best value for your investment</p>
+                        </div>
+                        
+                        <div class="usp-item">
+                            <i class="fas fa-user-tie"></i>
+                            <h3>Expert Agents</h3>
+                            <p>Our experienced agents are dedicated to your success</p>
+                        </div>
+                        
+                        <div class="usp-item">
+                            <i class="fas fa-headset"></i>
+                            <h3>24/7 Support</h3>
+                            <p>Our team is always available to assist you</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Properties Page -->
+        <div id="properties-page" class="page-content" style="display: none;">
+            <div class="section-title">
+                <h2>Property Listings</h2>
+                <p>Find your perfect home from our extensive collection</p>
+            </div>
+
+            <!-- Filters -->
+            <div class="search-bar">
+                <div class="search-input">
+                    <select>
+                        <option>Select Location</option>
+                        <option>New York</option>
+                        <option>Los Angeles</option>
+                        <option>Chicago</option>
+                        <option>Miami</option>
+                    </select>
+                </div>
+                <div class="search-input">
+                    <select>
+                        <option>Price Range</option>
+                        <option>Under $100,000</option>
+                        <option>$100,000 - $250,000</option>
+                        <option>$250,000 - $500,000</option>
+                        <option>Over $500,000</option>
+                    </select>
+                </div>
+                <div class="search-input">
+                    <select>
+                        <option>Property Type</option>
+                        <option>House</option>
+                        <option>Apartment</option>
+                        <option>Commercial</option>
+                        <option>Land</option>
+                    </select>
+                </div>
+                <div class="search-input">
+                    <select>
+                        <option>Size</option>
+                        <option>Under 1,000 sq.ft.</option>
+                        <option>1,000 - 2,000 sq.ft.</option>
+                        <option>2,000 - 3,000 sq.ft.</option>
+                        <option>Over 3,000 sq.ft.</option>
+                    </select>
+                </div>
+                <button class="search-button">Apply Filters</button>
+            </div>
+
+            <!-- Properties Grid -->
+            <div class="properties">
+                <!-- Property 1 -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=784&q=80" alt="Luxury Villa">
+                    </div>
+                    <div class="property-details">
+                        <div class="property-price">$525,000</div>
+                        <div class="property-address">123 Luxury Lane, Beverly Hills, CA</div>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 4 Beds</span>
+                            <span><i class="fas fa-bath"></i> 3 Baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 2,500 sq.ft.</span>
+                        </div>
+                        <button class="cta-button">View Details</button>
+                    </div>
+                </div>
+                
+                <!-- Property 2 -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Modern Apartment">
+                    </div>
+                    <div class="property-details">
+                        <div class="property-price">$375,000</div>
+                        <div class="property-address">456 Downtown Ave, New York, NY</div>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 3 Beds</span>
+                            <span><i class="fas fa-bath"></i> 2 Baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 1,800 sq.ft.</span>
+                        </div>
+                        <button class="cta-button">View Details</button>
+                    </div>
+                </div>
+                
+                <!-- Property 3 -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="Suburban House">
+                    </div>
+                    <div class="property-details">
+                        <div class="property-price">$450,000</div>
+                        <div class="property-address">789 Suburban St, Austin, TX</div>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 4 Beds</span>
+                            <span><i class="fas fa-bath"></i> 3 Baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 2,200 sq.ft.</span>
+                        </div>
+                        <button class="cta-button">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Property 4 -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80" alt="Luxury Home">
+                    </div>
+                    <div class="property-details">
+                        <div class="property-price">$750,000</div>
+                        <div class="property-address">101 Hillside Dr, San Francisco, CA</div>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 5 Beds</span>
+                            <span><i class="fas fa-bath"></i> 4 Baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 3,500 sq.ft.</span>
+                        </div>
+                        <button class="cta-button">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Property 5 -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1448630360428-65456885c650?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=c crop&w=1167&q=80" alt="Beach House">
+                    </div>
+                    <div class="property-details">
+                        <div class="property-price">$1,200,000</div>
+                        <div class="property-address">222 Ocean Ave, Miami, FL</div>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 4 Beds</span>
+                            <span><i class="fas fa-bath"></i> 3 Baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 2,800 sq.ft.</span>
+                        </div>
+                        <button class="cta-button">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Property 6 -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1586448900407-7397af48d116?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="City Apartment">
+                    </div>
+                    <div class="property-details">
+                        <div class="property-price">$325,000</div>
+                        <div class="property-address">333 Metro St, Chicago, IL</div>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 2 Beds</span>
+                            <span><i class="fas fa-bath"></i> 2 Baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 1,200 sq.ft.</span>
+                        </div>
+                        <button class="cta-button">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Property Detail Page -->
+        <div id="property-detail-page" class="page-content" style="display: none;">
+            <div class="section-title">
+                <h2>Luxury Villa in Beverly Hills</h2>
+                <p>123 Luxury Lane, Beverly Hills, CA</p>
+            </div>
+
+            <div class="property-detail">
+                <div class="property-gallery">
+                    <div class="main-image">
+                        <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=784&q=80" alt="Luxury Villa">
+                    </div>
+                    <div class="thumbnails">
+                        <div class="thumbnail active">
+                            <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=784&q=80" alt="Luxury Villa">
+                        </div>
+                        <div class="thumbnail">
+                            <img src="https://images.unsplash.com/photo-1586448900407-7397af48d116?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Living Room">
+                        </div>
+                        <div class="thumbnail">
+                            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Kitchen">
+                        </div>
+                        <div class="thumbnail">
+                            <img src="https://images.unsplash.com/photo-1560448076-3f6f44b6b4a8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80" alt="Bedroom">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="property-info">
+                    <h3>$525,000</h3>
+                    <p>This stunning luxury villa offers breathtaking views, premium finishes, and an unbeatable location in the heart of Beverly Hills.</p>
+                    
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <i class="fas fa-bed"></i>
+                            <span>4 Bedrooms</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-bath"></i>
+                            <span>3 Bathrooms</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-ruler-combined"></i>
+                            <span>2,500 sq.ft.</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-car"></i>
+                            <span>2 Garage spaces</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Year built: 2018</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-home"></i>
+                            <span>Property type: Single Family</span>
+                        </div>
+                    </div>
+
+                    <h3>Description</h3>
+                    <p>This exquisite luxury villa features an open floor plan with high ceilings, hardwood floors, and floor-to-ceiling windows that flood the space with natural light. The gourmet kitchen boasts top-of-the-line appliances, custom cabinetry, and a large island perfect for entertaining.</p>
+                    
+                    <p>The master suite includes a spa-like bathroom with a soaking tub and walk-in shower, plus a spacious walk-in closet. Outdoor living is enhanced with a covered patio, built-in barbecue, and a sparkling pool with spa.</p>
+                    
+                    <button class="cta-button">Contact Agent</button>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.015771909328!2d-118.401842424336!3d34.07360607315046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bcbb6d264c59%3A0x2bf3c2bce7df2d1c!2sBeverly%20Hills%2C%20CA%2C%20USA!5e0!3m2!1sen!2s!4v1685724573828!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <!-- About Us Page -->
+        <div id="about-page" class="page-content" style="display: none;">
+            <div class="section-title">
+                <h2>About PrimeRealty</h2>
+                <p>Your trusted partner in real estate for over 15 years</p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Story</h3>
+                    <p>Founded in 2008, PrimeRealty has grown from a small local agency to one of the most respected real estate firms in the region. Our journey began with a simple mission: to make buying and selling properties a seamless and enjoyable experience.</p>
+                    
+                    <h3>Our Mission</h3>
+                    <p>We strive to provide exceptional service by combining local expertise with cutting-edge technology. Our team of dedicated professionals is committed to helping you find the perfect property or get the best value for your current home.</p>
+                    
+                    <h3>Our Values</h3>
+                    <p>At PrimeRealty, we believe in integrity, transparency, and putting our clients first. We build lasting relationships based on trust and results, not just transactions.</p>
+                </div>
+                
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1073&q=80" alt="Our Office" style="width: 100%; border-radius: 8px;">
+                </div>
+            </div>
+
+            <div class="section-title">
+                <h2>Meet Our Team</h2>
+                <p>Experienced professionals dedicated to your success</p>
+            </div>
+
+            <div class="team-members">
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="Sarah Johnson">
+                    <h4>Sarah Johnson</h4>
+                    <p>CEO & Founder</p>
+                </div>
+                
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80" alt="Michael Chen">
+                    <h4>Michael Chen</h4>
+                    <p>Head of Sales</p>
+                </div>
+                
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="Emily Rodriguez">
+                    <h4>Emily Rodriguez</h4>
+                    <p>Senior Agent</p>
+                </div>
+                
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=699&q=80" alt="David Wilson">
+                    <h4>David Wilson</h4>
+                    <p>Property Manager</p>
+                </div>
+            </div>
+
+            <div class="section-title">
+                <h2>Certifications & Memberships</h2>
+            </div>
+
+            <div class="services">
+                <div class="service-card">
+                    <i class="fas fa-award"></i>
+                    <h3>National Association of Realtors</h3>
+                    <p>Full member since 2009</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-medal"></i>
+                    <h3>Best Real Estate Agency 2022</h3>
+                    <p>Real Estate Excellence Awards</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Certified Property Manager</h3>
+                    <p>Industry recognized certification</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services Page -->
+        <div id="services-page" class="page-content" style="display: none;">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Comprehensive real estate solutions for all your needs</p>
+            </div>
+
+            <div class="services">
+                <div class="service-card">
+                    <i class="fas fa-home"></i>
+                    <h3>Buying</h3>
+                    <p>We'll help you find your dream home with access to exclusive listings and expert negotiation skills.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3>Selling</h3>
+                    <p>Maximize your property's value with our strategic marketing and pricing approach.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-key"></i>
+                    <h3>Renting</h3>
+                    <p>Find the perfect rental property or list your investment property with our management services.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-building"></i>
+                    <h3>Property Management</h3>
+                    <p>Comprehensive management services for rental properties, including maintenance and tenant relations.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Investment Consulting</h3>
+                    <p>Expert advice on building your real estate portfolio and maximizing returns on investment.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Relocation Services</h3>
+                    <p>Specialized assistance for clients moving to new cities or countries.</p>
+                </div>
+            </div>
+
+            <div class="section-title">
+                <h2>How It Works</h2>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>1. Consultation</h3>
+                    <p>We begin with a detailed consultation to understand your needs, preferences, and budget.</p>
+                    
+                    <h3>2. Property Search</h3>
+                    <p>Our agents use advanced tools and their local expertise to find properties that match your criteria.</p>
+                    
+                    <h3>3. Viewings</h3>
+                    <p>We schedule and accompany you on property viewings at your convenience.</p>
+                    
+                    <h3>4. Negotiation</h3>
+                    <p>Our experienced negotiators work to get you the best possible price and terms.</p>
+                    
+                    <h3>5. Closing</h3>
+                    <p>We guide you through the entire closing process, ensuring a smooth transaction.</p>
+                </div>
+                
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80" alt="Real Estate Process" style="width: 100%; border-radius: 8px;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Us Page -->
+        <div id="contact-page" class="page-content" style="display: none;">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with our team for any inquiries</p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-form">
+                    <h3>Send us a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" placeholder="Your Name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="Your Phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="Your Email">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" placeholder="How can we help you?"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="cta-button">Send Message</button>
+                    </form>
+                </div>
+                
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.9663095343008!2d-74.004258724336!3d40.74076997138915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259bf5c8eef01%3A0x41d071c4d5b1c5d0!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1685724772854!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>123 Real Estate Ave, New York, NY 10001</span>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+1 (555) 123-4567</span>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>info@primerealty.com</span>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Monday-Friday: 9am-6pm, Saturday: 10am-4pm</span>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 15px; margin: 30px 0;">
+                <button class="cta-button"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+                <button class="cta-button"><i class="fas fa-phone"></i> Call Now</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>PrimeRealty</h3>
+                    <p>Your trusted partner in real estate for over 15 years. We're committed to helping you find your perfect home.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" class="nav-link" data-page="home">Home</a></li>
+                        <li><a href="#" class="nav-link" data-page="properties">Properties</a></li>
+                        <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
+                        <li><a href="#" class="nav-link" data-page="services">Services</a></li>
+                        <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Buying</a></li>
+                        <li><a href="#">Selling</a></li>
+                        <li><a href="#">Renting</a></li>
+                        <li><a href="#">Property Management</a></li>
+                        <li><a href="#">Investment Consulting</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Real Estate Ave, New York, NY</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@primerealty.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 PrimeRealty. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Page Navigation Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const pages = {
+                'home': document.getElementById('home-page'),
+                'properties': document.getElementById('properties-page'),
+                'about': document.getElementById('about-page'),
+                'services': document.getElementById('services-page'),
+                'contact': document.getElementById('contact-page')
+            };
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pageButtons = document.querySelectorAll('.page-btn');
+            
+            // Function to show a specific page and hide others
+            function showPage(pageId) {
+                // Hide all pages
+                for (const page of Object.values(pages)) {
+                    if (page) page.style.display = 'none';
+                }
+                
+                // Show the selected page
+                if (pages[pageId]) {
+                    pages[pageId].style.display = 'block';
+                }
+                
+                // Update active class on navigation links
+                navLinks.forEach(link => {
+                    if (link.dataset.page === pageId) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Add click event to navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.dataset.page;
+                    showPage(pageId);
+                    
+                    // Scroll to top
+                    window.scrollTo(0, 0);
+                });
+            });
+            
+            // Add click event to page buttons (for mobile)
+            pageButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const pageId = this.dataset.page;
+                    showPage(pageId);
+                    
+                    // Scroll to top
+                    window.scrollTo(0, 0);
+                });
+            });
+            
+            // Initialize the page with home visible
+            showPage('home');
+            
+            // CTA button functionality
+            const ctaButtons = document.querySelectorAll('.cta-button');
+            
+            ctaButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    alert('Thank you for your interest! A real estate agent will contact you shortly.');
+                });
+            });
+            
+            // Property card click functionality
+            const propertyCards = document.querySelectorAll('.property-card');
+            
+            propertyCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    if (!e.target.classList.contains('cta-button')) {
+                        showPage('property-detail-page');
+                        window.scrollTo(0, 0);
+                    }
+                });
+            });
+            
+            // Thumbnail click functionality
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    const mainImage = document.querySelector('.main-image img');
+                    const thumbSrc = this.querySelector('img').src;
+                    mainImage.src = thumbSrc;
+                    
+                    // Update active thumbnail
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
